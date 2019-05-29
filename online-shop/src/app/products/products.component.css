@@ -1,0 +1,30 @@
+.products { 
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.productButton {
+    margin-top: 20px;
+}
+
+.products a {
+    color: #4A4240;
+    text-decoration: none;
+    position: relative;
+    display: block;
+}
+
+.products li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+}
+.products li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+
+.products .text {
+    position: relative;
+    top: -3px;
+}

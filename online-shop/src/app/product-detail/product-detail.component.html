@@ -1,0 +1,107 @@
+<!-- <div *ngIf="product">
+  <h2>{{product.name | uppercase}} Details</h2>
+  <div><label>name: <input [(ngModel)]="product.name" placeholder="name" />
+    </label>
+  </div>
+  <div><span>description: </span>{{product.description}}</div>
+  <div><span>price: </span>{{product.price}}</div>
+  <div><span>weight: </span>{{product.weight}}</div>
+  <div><span>category: </span>{{product.category}}</div>
+  <div><span>supplier: </span>{{product.supplier}}</div>
+  <div><span>imageURL: </span>{{product.imageURL}}</div>
+  <div><span>categoryName: </span>{{product.categoryName}}</div>
+  <div><span>categoryDescription: </span>{{product.categoryDescription}}</div>
+</div> -->
+
+<div *ngIf="product">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center"> {{product.name | uppercase}} Details</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Product's name: </p>
+      </div>
+      <div class="col-md-9">
+        <input #name [(ngModel)]="product.name" placeholder="name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Product's description: </p>
+      </div>
+      <div class="col-md-9">
+        <input #description [(ngModel)]="product.description" placeholder="description">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Price: </p>
+      </div>
+      <div class="col-md-9">
+        <input #price [(ngModel)]="product.price" placeholder="price">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Weight: </p>
+      </div>
+      <div class="col-md-9">
+        <input #weight [(ngModel)]="product.weight" placeholder="weight">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Category: </p>
+      </div>
+      <div class="col-md-9">
+        <input #category [(ngModel)]="product.category" placeholder="category">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Supplier: </p>
+      </div>
+      <div class="col-md-9">
+        <input #supplier [(ngModel)]="product.supplier" placeholder="supplier">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">ImageUrl: </p>
+      </div>
+      <div class="col-md-9">
+        <input #imageURL [(ngModel)]="product.imageURL" placeholder="imageURL">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Category's name: </p>
+      </div>
+      <div class="col-md-9">
+        <input #categoryName [(ngModel)]="product.categoryName" placeholder="category's name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right">Category's description: </p>
+      </div>
+      <div class="col-md-9">
+        <textarea #categoryDescription [(ngModel)]="product.categoryDescription"
+          placeholder="category's description"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 offset-md-2">
+        <button type="button" class="btn btn-outline-primary btn-lg" (click)="this.update(name.value, description.value, price.value, weight.value, category.value, supplier.value, 
+          imageURL.value, categoryName.value, categoryDescription.value)">Update</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-outline-danger btn-delete btn-lg" (click)="this.delete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

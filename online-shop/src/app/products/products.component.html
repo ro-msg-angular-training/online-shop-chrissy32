@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a role="button" class="btn btn-outline-success btn-lg productButton"
+                href="http://localhost:4200/products/add">Add a
+                product</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group products">
+                <li class="list-group-item" *ngFor="let product of products">
+                    <a target="_blank" routerLink="/detail/{{product.id}}">
+                        <span class="badge">{{product.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

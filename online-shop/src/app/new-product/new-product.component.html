@@ -1,0 +1,85 @@
+<!-- <button class="btn-two green rounded addNewProductButton" onclick="save(name.value, description.value, price.value, 
+        weight.value, supplier.value, imageUrl.value, categoryName.value, categoryDescription.value); 
+        name.value = '', description.value = '', price.value = '', weight.value = '', supplier.value = '', imageUrl.value = '',
+        categoryName.value = '', categoryDescription.value = ''">Add this product</button> -->
+
+<div class="container new-product">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Product's name: </p>
+    </div>
+    <div class="col-md-9">
+      <input #name placeholder="name">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Product's description: </p>
+    </div>
+    <div class="col-md-9">
+      <input #description placeholder="description">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Price: </p>
+    </div>
+    <div class="col-md-9">
+      <input #price placeholder="price">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Weight: </p>
+    </div>
+    <div class="col-md-9">
+      <input #weight placeholder="weight">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Category: </p>
+    </div>
+    <div class="col-md-9">
+      <input #category placeholder="category">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Supplier: </p>
+    </div>
+    <div class="col-md-9">
+      <input #supplier placeholder="supplier">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">ImageUrl: </p>
+    </div>
+    <div class="col-md-9">
+      <input #imageURL placeholder="imageURL">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Category's name: </p>
+    </div>
+    <div class="col-md-9">
+      <input #categoryName placeholder="category's name">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="text-right">Category's description: </p>
+    </div>
+    <div class="col-md-9">
+      <textarea #categoryDescription placeholder="category's description"></textarea>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-outline-success btn-lg addNewProductButton" (click)="this.save(name.value, 
+  description.value, price.value, weight.value, category.value, supplier.value, imageURL.value, categoryName.value, 
+  categoryDescription.value); name.value=''; description.value=''; price.value = ''; weight.value = ''; category.value = '';
+   supplier.value = ''; imageURL.value = ''; categoryName.value = ''; categoryDescription.value = ''">Add this
+    product</button>
+</div>
