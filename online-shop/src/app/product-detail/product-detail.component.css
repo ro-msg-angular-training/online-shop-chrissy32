@@ -3,11 +3,16 @@ h2 {
   margin-bottom: 15px;
 }
 
-input {
+/* input {
   height: 2em;
   font-size: 1em;
   padding-left: .1em;
   width: 80%;
+} */
+
+.categoryBtn {
+  margin-top: -2px !important;
+  margin-bottom: 5px !important;
 }
 
 div {
@@ -15,9 +20,9 @@ div {
   align-content: center;
 }
 
-textarea {
+/* textarea {
   width: 80%;
-}
+} */
 
 .btn {
   margin-top: 10px;

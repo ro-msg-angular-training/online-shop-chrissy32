@@ -1,19 +1,4 @@
 <!-- <div *ngIf="product">
-  <h2>{{product.name | uppercase}} Details</h2>
-  <div><label>name: <input [(ngModel)]="product.name" placeholder="name" />
-    </label>
-  </div>
-  <div><span>description: </span>{{product.description}}</div>
-  <div><span>price: </span>{{product.price}}</div>
-  <div><span>weight: </span>{{product.weight}}</div>
-  <div><span>category: </span>{{product.category}}</div>
-  <div><span>supplier: </span>{{product.supplier}}</div>
-  <div><span>imageURL: </span>{{product.imageURL}}</div>
-  <div><span>categoryName: </span>{{product.categoryName}}</div>
-  <div><span>categoryDescription: </span>{{product.categoryDescription}}</div>
-</div> -->
-
-<div *ngIf="product">
 
   <div class="container">
     <div class="row">
@@ -62,6 +47,18 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-md-9 offset-md-3">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle categoryBtn" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See available categories</button>
+          <ul class="dropdown-menu categories">
+            <li *ngFor="let category of categories" class="dropdown-item" href="#">{{category.id}}. {{category.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-3">
         <p class="text-right">Supplier: </p>
       </div>
@@ -69,6 +66,18 @@
         <input #supplier [(ngModel)]="product.supplier" placeholder="supplier">
       </div>
     </div>
+    <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle categoryBtn" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See available suppliers</button>
+            <ul class="dropdown-menu suppliers">
+              <li *ngFor="let supplier of suppliers" class="dropdown-item" href="#">{{supplier.id}}. {{supplier.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     <div class="row">
       <div class="col-md-3">
         <p class="text-right">ImageUrl: </p>
@@ -103,5 +112,57 @@
         <button type="button" class="btn btn-outline-danger btn-delete btn-lg" (click)="this.delete()">Delete</button>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div *ngIf="product">
+  <div class="container">
+    <form #productForm="ngForm">
+      <div class="form-group">
+        <label for="name">Product's name</label>
+        <input type="text" [(ngModel)]="product.name" name="name" class="form-control" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Product's description</label>
+        <input type="text" [(ngModel)]="product.description" name="description" class="form-control" id="description">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" [(ngModel)]="product.price" name="price" class="form-control" id="price" required>
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" [(ngModel)]="product.weight" name="weight" class="form-control" id="weight" required>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select [(ngModel)]="product.category" name="category" class="form-control" id="category" required>
+          <option *ngFor="let category of categories" [value]="category">{{category.id}}. {{category.name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="supplier">Supplier</label>
+        <select [(ngModel)]="product.supplier" name="supplier" class="form-control" id="supplier" required>            
+          <option *ngFor="let supplier of suppliers" [value]="supplier">{{supplier.id}}. {{supplier.name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="categoryName">Category's name</label>
+        <input type="text" [(ngModel)]="product.categoryName" name="categoryName" class="form-control" id="categoryName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="categoryDescription">Category's description</label>
+        <textarea type="text" [(ngModel)]="product.categoryDescription" name="categoryDescription" class="form-control" id="categoryDescription"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success" (click)="this.update(productForm.value)">Submit</button>
+    </form>
   </div>
 </div>
