@@ -27,3 +27,32 @@ div {
 .btn {
   margin-top: 10px;
 }
+
+select, option {
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+  text-align-last: center;
+  text-align: center;
+}
+
+label {
+  color:  #00004d;
+  font-size: 20px;
+}
+
+.container {
+  margin-top: 15px;
+}
+
+.titleDetails {
+  margin-left: -100px !important;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

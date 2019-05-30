@@ -69,8 +69,18 @@ export class ProductDetailComponent implements OnInit {
   //   window.location.reload();
   // }
 
-  update(data: any): void {
-    console.log(data);
+  update(form: any): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    var formValues = form.value;
+
+    let updatedProduct = new Product(id, formValues.name, formValues.description, formValues.price, formValues.weight,
+      formValues.category, formValues.supplier, formValues.imageURL, formValues.categoryName, formValues.categoryDescription);
+
+    this.productService.update(updatedProduct)
+      .subscribe(product => this.product = product);
+ 
+    window.location.reload();
   }
 
 }
