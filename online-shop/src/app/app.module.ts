@@ -9,6 +9,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductsComponent } from './products/products.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProductDetailComponent,
     ProductsComponent,
     NewProductComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>{{message}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Username:</span>
+        </div>
+        <input #username type="text" class="form-control" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Password:</span>
+          </div>
+          <input #password type="password" class="form-control" aria-describedby="basic-addon1">
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-outline-dark" (click)="login(username.value, password.value)"
+        *ngIf="!authService.isLoggedIn">Login</button>
+      <button type="button" class="btn btn-outline-dark" (click)="logout()"
+        *ngIf="authService.isLoggedIn">Logout</button>
+    </div>
+  </div>
+</div>
