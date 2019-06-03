@@ -6,6 +6,8 @@ import { CategoryService } from '../category.service';
 import { Category } from '../category';
 import { Supplier } from '../supplier';
 import { SupplierService } from '../supplier.service';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -22,7 +24,8 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductService,
     private categoryService: CategoryService,
     private supplierService: SupplierService,
-    private router: Router) { }
+    private router: Router,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -47,27 +50,17 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(product => this.product = product);
   }
 
+  addToCart(): void {
+    this.cartService.save(this.product);
+  }
+
+
   delete(): void {
     const id = +this.route.snapshot.paramMap.get('id');
 
     this.productService.delete(id)
       .subscribe(product => this.product = product);
-
-    // this.router.navigate(['/products']);
   }
-
-  // update(name: string, description: string, price: any, weight: any, category: number, supplier: number, imageURL: string, categoryName: string,
-  //   categoryDescription: string): void {
-  //   const id = +this.route.snapshot.paramMap.get('id');
-
-  //   this.productService.update({
-  //     id, name, description, price, weight, category, supplier, imageURL, categoryName,
-  //     categoryDescription
-  //   } as Product)
-  //     .subscribe(product => this.product = product);
-
-  //   window.location.reload();
-  // }
 
   update(form: any): void {
     const id = +this.route.snapshot.paramMap.get('id');

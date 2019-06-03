@@ -1,128 +1,15 @@
-<!-- <div *ngIf="product">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-center"> {{product.name | uppercase}} Details</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Product's name: </p>
-      </div>
-      <div class="col-md-9">
-        <input #name [(ngModel)]="product.name" placeholder="name">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Product's description: </p>
-      </div>
-      <div class="col-md-9">
-        <input #description [(ngModel)]="product.description" placeholder="description">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Price: </p>
-      </div>
-      <div class="col-md-9">
-        <input #price [(ngModel)]="product.price" placeholder="price">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Weight: </p>
-      </div>
-      <div class="col-md-9">
-        <input #weight [(ngModel)]="product.weight" placeholder="weight">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Category: </p>
-      </div>
-      <div class="col-md-9">
-        <input #category [(ngModel)]="product.category" placeholder="category">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9 offset-md-3">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle categoryBtn" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See available categories</button>
-          <ul class="dropdown-menu categories">
-            <li *ngFor="let category of categories" class="dropdown-item" href="#">{{category.id}}. {{category.name}}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Supplier: </p>
-      </div>
-      <div class="col-md-9">
-        <input #supplier [(ngModel)]="product.supplier" placeholder="supplier">
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9 offset-md-3">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle categoryBtn" type="button" id="dropdownMenuButton"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See available suppliers</button>
-            <ul class="dropdown-menu suppliers">
-              <li *ngFor="let supplier of suppliers" class="dropdown-item" href="#">{{supplier.id}}. {{supplier.name}}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">ImageUrl: </p>
-      </div>
-      <div class="col-md-9">
-        <input #imageURL [(ngModel)]="product.imageURL" placeholder="imageURL">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Category's name: </p>
-      </div>
-      <div class="col-md-9">
-        <input #categoryName [(ngModel)]="product.categoryName" placeholder="category's name">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <p class="text-right">Category's description: </p>
-      </div>
-      <div class="col-md-9">
-        <textarea #categoryDescription [(ngModel)]="product.categoryDescription"
-          placeholder="category's description"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 offset-md-2">
-        <button type="button" class="btn btn-outline-primary btn-lg" (click)="this.update(name.value, description.value, price.value, weight.value, category.value, supplier.value, 
-          imageURL.value, categoryName.value, categoryDescription.value)">Update</button>
-      </div>
-      <div class="col-md-4">
-        <button type="button" class="btn btn-outline-danger btn-delete btn-lg" (click)="this.delete()">Delete</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div *ngIf="product">
   <div class="container">
     <div class="row titleDetails">
-      <div class="col-md-9 offset-md-2">
+      <div class="col-md-9">
         <h2 class="text-center"> {{product.name | uppercase}} Details</h2>
       </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-outline-info btn-lg cartBtn" (click)="this.addToCart()">Add to
+          cart</button>
+      </div>
       <div class="col-md-1">
-        <button type="button" class="btn btn-outline-danger btn-lg" (click)="this.delete()">Delete</button>
+        <button type="button" class="btn btn-outline-danger btn-lg deleteBtn" (click)="this.delete()">Delete</button>
       </div>
     </div>
     <form #productForm="ngForm" (ngSubmit)="this.update(productForm)">
@@ -180,6 +67,12 @@
         <select [(ngModel)]="product.supplier" name="supplier" class="form-control" id="supplier" required>
           <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{supplier.id}}. {{supplier.name}}</option>
         </select>
+      </div>
+
+      <div class="form-group">
+        <label for="imageURL">ImageURL</label>
+        <input type="text" [(ngModel)]="product.imageURL" name="imageURL" class="form-control"
+          id="imageURL">
       </div>
 
       <div class="form-group">

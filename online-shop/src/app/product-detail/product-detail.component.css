@@ -28,6 +28,18 @@ div {
   margin-top: 10px;
 }
 
+h2 {
+  margin-left: 45% !important;
+}
+
+.deleteBtn {
+  float: left;
+}
+
+.cartBtn {
+  float: right;
+}
+
 select, option {
   margin-left: 25%;
   margin-right: 25%;

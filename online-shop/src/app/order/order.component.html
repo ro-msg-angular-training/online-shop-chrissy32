@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form #orderForm="ngForm" (ngSubmit)="this.placeOrder(orderForm)">
+        <div class="form-group">
+          <label for="addressCountry">Delivery address' country</label>
+          <input type="text" ngModel name="addressCountry" class="form-control" id="addressCountry" required>
+        </div>
+
+        <div class="form-group">
+          <label for="addressCity">Delivery address' city</label>
+          <input type="text" ngModel name="addressCity" class="form-control" id="addressCity">
+        </div>
+
+        <div class="form-group">
+          <label for="addressCounty">Delivery address' county</label>
+          <input type="text" ngModel name="addressCounty" class="form-control" id="addressCounty">
+        </div>
+
+        <div class="form-group">
+          <label for="addressStreet">Delivery address' street</label>
+          <input type="text" ngModel name="addressStreet" class="form-control" id="addressStreet">
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-lg">Place order</button>
+      </form>
+    </div>
+  </div>
+</div>

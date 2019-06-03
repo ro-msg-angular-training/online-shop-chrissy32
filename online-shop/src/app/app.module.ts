@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AdminModule } from './admin/admin.module';
     ProductsComponent,
     NewProductComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    ShoppingCartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
