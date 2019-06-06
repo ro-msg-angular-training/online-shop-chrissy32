@@ -23,6 +23,7 @@ nav a.active {
 }
 
 h1 {
+    margin-top: 10px;
     color: #001f3f;
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-size: 60px;

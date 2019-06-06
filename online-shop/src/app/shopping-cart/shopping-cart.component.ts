@@ -3,6 +3,8 @@ import { Product } from '../product';
 import { CartService } from '../cart.service';
 import { ProductQuantity } from '../productQuantity';
 import { Router } from '@angular/router';
+import { Address } from '../address';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-shopping-cart',

@@ -7,11 +7,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Order } from './order';
 import { ProductidQuantity } from './productidQuantity';
 
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +14,7 @@ export class CartService {
 
   cartProducts: ProductQuantity[] = [];
   orderUrl = 'http://localhost:8080/orders';
+  orders: Order[];
 
   constructor(private http: HttpClient) { }
 
@@ -52,7 +48,7 @@ export class CartService {
     return of(this.cartProducts);
   }
 
-  placeOrder(address: Address): Observable<Order> {
+  placeOrder(address: Address) {
     let orderProducts: ProductidQuantity[] = [];
 
     this.cartProducts.forEach(product => {
@@ -61,6 +57,8 @@ export class CartService {
     });
 
     let order = new Order(address, orderProducts);
-    return this.http.post<Order>(this.orderUrl, order, httpOptions);
+    this.cartProducts = [];
+    console.log(order);
+    this.http.post<Order>(this.orderUrl, order).subscribe();
   }
 }

@@ -6,7 +6,6 @@ import { CategoryService } from '../category.service';
 import { Category } from '../category';
 import { Supplier } from '../supplier';
 import { SupplierService } from '../supplier.service';
-import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -24,7 +23,6 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductService,
     private categoryService: CategoryService,
     private supplierService: SupplierService,
-    private router: Router,
     private cartService: CartService) { }
 
   ngOnInit(): void {

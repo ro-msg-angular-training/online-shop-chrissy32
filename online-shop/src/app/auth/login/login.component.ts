@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/users.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ export class LoginComponent {
 
   message: string;
 
-  constructor(public authService: AuthService, public router: Router, private route: ActivatedRoute) {
+  constructor(public authService: AuthService,
+    public router: Router,
+    private route: ActivatedRoute,
+    private userService: UsersService) {
     this.setMessage();
   }
 
@@ -20,23 +24,30 @@ export class LoginComponent {
   }
 
   login(username: any, password: any) {
-    this.message = 'Trying to log in ...';
+    var credentials = { user: username, password: password };
 
-    if (username != "chrissy32" && password != "passwd") {
-      this.message = 'Wrong username or password!';
-    }
-    else {
-      this.authService.login().subscribe(() => {
-        this.setMessage();
-        if (this.authService.isLoggedIn) {
-          const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.login(id, credentials, () => {
+      this.router.navigate(['/detail/' + id]);
+    });
 
-          let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/detail/' + id;
-          this.router.navigateByUrl(redirect);
+    // this.message = 'Trying to log in ...';
 
-        }
-      });
-    }
+    // if (username != "chrissy32" && password != "passwd") {
+    //   this.message = 'Wrong username or password!';
+    // }
+    // else {
+    //   this.authService.login().subscribe(() => {
+    //     this.setMessage();
+    //     if (this.authService.isLoggedIn) {
+    //       const id = +this.route.snapshot.paramMap.get('id');
+
+    //       let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/detail/' + id;
+    //       this.router.navigateByUrl(redirect);
+
+    //     }
+    //   });
+    // }
   }
 
   logout() {

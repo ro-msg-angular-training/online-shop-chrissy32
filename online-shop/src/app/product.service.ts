@@ -38,7 +38,13 @@ export class ProductService {
 
   getProduct(id: number): Observable<Product> {
     const productUrl = `${this.productsUrl}/${id}`;
-    return this.http.get<Product>(productUrl)
+
+    var credentials = JSON.parse(localStorage.getItem('user'));
+    const headers = new HttpHeaders(credentials ? {
+      authorization: 'Basic ' + btoa(credentials.user + ':' + credentials.pass)
+    } : {});
+
+    return this.http.get<Product>(productUrl, { headers: headers })
       .pipe(catchError(this.handleError));
 
   }
